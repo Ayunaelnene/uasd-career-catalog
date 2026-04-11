@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: uasd_mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: uasd_catalog
+      MYSQL_USER: uasd_user
+      MYSQL_PASSWORD: uasd_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - uasd-net
+   
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "uasd_user", "-puasd_password"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  java_app:
+    build: ./java-app
+    container_name: uasd_java_app
+    depends_on:
+      db:
+        condition: service_healthy 
+    networks:
+      - uasd-net
+
+networks:
+  uasd-net:
+    driver: bridge
