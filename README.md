@@ -32,7 +32,7 @@ _Nota: No necesitas instalar Java, Maven o MySQL en tu máquina local._
 1.  **Clonar el repositorio:**
 
     ```bash
-    git clone [https://github.com/tu-usuario/uasd-career-catalog.git](https://github.com/tu-usuario/uasd-career-catalog.git)
+    git clone [https://github.com/CedanoDev/uasd-career-catalog.git](https://github.com/CedanoDev/uasd-career-catalog.git)
     cd uasd-career-catalog
     ```
 
