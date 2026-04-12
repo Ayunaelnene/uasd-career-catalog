@@ -62,3 +62,7 @@ uasd-career-catalog/
 
 ✒️ Autores
 Edward Cedano Ogando - 100630954
+
+## 📊 Modelo Relacional
+
+![Diagrama de Base de Datos](./docs/diagrama_uasd.png)
