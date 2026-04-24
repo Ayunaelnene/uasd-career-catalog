@@ -27,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Main extends JFrame {
 
-    // ==================== CONEXIÓN ====================
+    // ==================== CONEXION ====================
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/uasd_catalog";
     private static final String USUARIO = "uasd_user";
     private static final String PASSWORD = "uasd_password";
@@ -39,7 +39,7 @@ public class Main extends JFrame {
     private DefaultTableModel modeloTabla;
 
     public Main() {
-        setTitle("Catálogo Oficial de Carreras - UASD");
+        setTitle("Catalogo Oficial de Carreras - UASD");
         setSize(1300, 780);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -49,7 +49,7 @@ public class Main extends JFrame {
         JPanel panelSuperior = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 15));
         panelSuperior.setBackground(new Color(0, 51, 102));
 
-        JLabel titulo = new JLabel("Catálogo de Carreras UASD");
+        JLabel titulo = new JLabel("Catalogo de Carreras UASD");
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titulo.setForeground(Color.WHITE);
 
@@ -72,7 +72,7 @@ public class Main extends JFrame {
         panelSuperior.add(btnTodas);
        
         // ==================== TABLA SOLO LECTURA ====================
-        String[] columnas = {"ID", "Facultad", "Escuela", "Código", "Nombre de la Carrera"};
+        String[] columnas = {"ID", "Facultad", "Escuela", "Codigo", "Nombre de la Carrera"};
 
         modeloTabla = new DefaultTableModel(columnas, 0) {
             @Override
