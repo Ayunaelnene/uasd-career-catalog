@@ -28,10 +28,10 @@ import javax.swing.table.DefaultTableModel;
 public class CatalogoCarrerasUASD extends JFrame {
 
     // ==================== CONEXIÓN ====================
-    private static final String URL = "jdbc:mysql://localhost:3306/uasd_catalog?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USUARIO = "root";
-    private static final String PASSWORD = "+Juandelospalotes.01*";
-
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/uasd_catalog";
+    private static final String USUARIO = "uasd_user";
+    private static final String PASSWORD = "uasd_password";
+    
     private JComboBox<String> comboFacultad;
     private JTextField txtBuscar;
     private JButton btnBuscar, btnTodas;
@@ -39,7 +39,7 @@ public class CatalogoCarrerasUASD extends JFrame {
     private DefaultTableModel modeloTabla;
 
     public CatalogoCarrerasUASD() {
-        setTitle("🎓 Catálogo Oficial de Carreras - UASD");
+        setTitle("Catálogo Oficial de Carreras - UASD");
         setSize(1300, 780);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -59,7 +59,7 @@ public class CatalogoCarrerasUASD extends JFrame {
         txtBuscar = new JTextField(25);
         txtBuscar.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 
-        btnBuscar = new JButton("🔍 Buscar");
+        btnBuscar = new JButton("Buscar");
         btnTodas = new JButton("Todas las Carreras");
         
         styleButton(btnBuscar, new Color(0, 153, 76));
@@ -112,11 +112,10 @@ public class CatalogoCarrerasUASD extends JFrame {
         });
 
         btnTodas.addActionListener(e -> {
-            txtBuscar.setText("");           // ← Limpia el JTextField
+            txtBuscar.setText("");           
             cargarTodasLasCarreras();
         });
 
-        // NUEVO: Al seleccionar una facultad en el ComboBox
         comboFacultad.addActionListener(e -> {
             String facultadSeleccionada = (String) comboFacultad.getSelectedItem();
             if (facultadSeleccionada != null && !facultadSeleccionada.equals("Todas las Facultades")) {
@@ -180,7 +179,6 @@ public class CatalogoCarrerasUASD extends JFrame {
         }
     }
 
-    // NUEVO MÉTODO: Filtrar por facultad seleccionada en ComboBox
     private void filtrarPorFacultad(String facultad) {
         modeloTabla.setRowCount(0);
         String sql = """
