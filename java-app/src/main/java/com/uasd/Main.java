@@ -1,4 +1,4 @@
-package com.uasd_Catalog;
+package com.uasd;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,7 +25,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
-public class CatalogoCarrerasUASD extends JFrame {
+public class Main extends JFrame {
 
     // ==================== CONEXIÓN ====================
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/uasd_catalog";
@@ -38,7 +38,7 @@ public class CatalogoCarrerasUASD extends JFrame {
     private JTable tablaCarreras;
     private DefaultTableModel modeloTabla;
 
-    public CatalogoCarrerasUASD() {
+    public Main() {
         setTitle("Catálogo Oficial de Carreras - UASD");
         setSize(1300, 780);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -258,6 +258,6 @@ public class CatalogoCarrerasUASD extends JFrame {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception ignored) {}
 
-        SwingUtilities.invokeLater(() -> new CatalogoCarrerasUASD().setVisible(true));
+        SwingUtilities.invokeLater(() -> new Main().setVisible(true));
     }
 }
